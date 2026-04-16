@@ -1,6 +1,6 @@
 import json
 import datetime
-
+import os
 
 SEVERITY_ORDER = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
 
@@ -57,7 +57,8 @@ def generate_report(findings, score):
         "findings": findings,
     }
 
-    output_file = f"report_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    os.makedirs("reports", exist_ok=True)	    
+    output_file = f"reports/report_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     with open(output_file, "w") as f:
         json.dump(report_data, f, indent=2)
 

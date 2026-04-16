@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+venv/
+openstack-venv/
+.env
+reports/
+.git/
